@@ -49,5 +49,5 @@ class WelcomeController extends Controller {
 		InsertModel::addData($val);
 		return view('insert');
 	}	
-
+	//juiyiyiyiyiiyiyiyiyiyi
 }
