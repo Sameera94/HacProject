@@ -8,6 +8,7 @@ use DB;
  * Class Room
  * @package App
  */
+ //Tsting
 class InsertModel extends Model {
 
     public static function addData($name){
