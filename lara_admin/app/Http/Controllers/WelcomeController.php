@@ -5,6 +5,8 @@ use Input;
 use DB;
 use Redirect;
 use App\InsertModel;
+use App\Http\Requests;
+
 
 
 class WelcomeController extends Controller {
@@ -27,7 +29,7 @@ class WelcomeController extends Controller {
 	 */
 	public function __construct()
 	{
-		$this->middleware('guest');
+		$this->middleware('auth');
 	}
 
 	/**
@@ -35,10 +37,7 @@ class WelcomeController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
-	{
-		return "sameera";
-	}
+
 	
 	public function Insert() {
 		return view('insert');
@@ -48,6 +47,60 @@ class WelcomeController extends Controller {
 		$val =  Request::get('test');
 		InsertModel::addData($val);
 		return view('insert');
-	}	
+	}
+
+
+	public function  diningAddMenu()
+	{
+
+		//Get Input Parameters
+		$name = Request::get('itemName');
+		$cat = Request::get('foodCatagory');
+		$price = Request::get('price');
+
+
+		//	Check if the item already exists
+	   //$itemCount = FoodItem::checkUniqueItems($name, $cat);
+
+
+
+		$itemCount=DB::table('fooditems')->where('cat', '=',$cat)
+			->where('name','=',$name)
+			->count();
+
+
+		if ($itemCount == 1) {
+
+			\Session::flash('flash_messageError', 'Food Item already existing in the menu!!');
+
+			return redirect('insert');
+		} else {
+
+
+			DB::table('fooditems')->insert([
+				[
+					'name' => $name,
+					'image' => "null",
+					'price' => $price,
+					'cat' => $cat,
+				]
+			]);
+
+			\Session::flash('flash_message', 'Food Item Added Sucessfully!!');
+
+			return redirect('insert');
+		}
+
+
+
+	}
+
+
+	public function  addMenuForm()
+	{
+		return view('insert');
+
+	}
+
 
 }

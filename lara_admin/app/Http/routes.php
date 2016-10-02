@@ -20,9 +20,25 @@ Route::get('insert','WelcomeController@Insert');
 Route::post('insert_data','WelcomeController@InsertData');
 
 
+Route::get('addMenuPage','WelcomeController@addMenuForm');
 
 
+//registed route for admin to submit dinning menu add from
+Route::post('diningAddMenuSubmit','WelcomeController@diningAddMenu');
 
+Route::get('addMenuPage','WelcomeController@addMenuForm');
+
+//registed route for admin to view dinning menu
+Route::get('viewDiningMenu','menuController@viewDiningMenu');
+
+//registed route for admin to edit  dinning menu
+Route::get('diningMenuEdit/{id}','menuController@diningMenuEdit');
+
+
+Route::post('updateDiningItem/{id}','menuController@diningAddMenu');
+
+
+//diningMenuEdit/'.$foodItem->id
 
 Route::get('home', 'HomeController@index');
 

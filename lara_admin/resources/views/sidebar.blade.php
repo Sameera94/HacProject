@@ -28,11 +28,31 @@
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-pie-chart"></i>
-                    <span>Test</span>
+                    <span>Menu</span>
                     <i class="fa fa-angle-left pull-right"></i>
                 </a>
+
                 <ul class="treeview-menu">
-                    <li><a href="insert"><i class="fa fa-circle-o"></i>Insert</a></li>
+                    <li><a href="insert"><i class="fa fa-circle-o"></i>Add Menu</a></li>
+                </ul>
+
+                <ul class="treeview-menu">
+                    <li><a href="viewDiningMenu"><i class="fa fa-circle-o"></i>View Menu</a></li>
+                </ul>
+
+            </li>
+
+
+
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-pie-chart"></i>
+                    <span>Menu</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+
+                <ul class="treeview-menu">
+                    <li><a href="insert"><i class="fa fa-circle-o"></i>Add Menu</a></li>
                 </ul>
             </li>
             <li class="treeview">
