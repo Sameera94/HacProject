@@ -36,3 +36,8 @@ Route::controllers([
 Route::get('/', function () {
     return view('sample');
 });
+
+
+Route::get('customerOrders', 'CustomerOrders@index');
+Route::get('updateOrderStatus{id}', 'CustomerOrders@update');
+Route::post('searchOrderStatus', 'CustomerOrders@search');
