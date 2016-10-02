@@ -5,11 +5,9 @@ use Input;
 use DB;
 use Redirect;
 use App\InsertModel;
-use App\Http\Requests;
 
 
-
-class WelcomeController extends Controller {
+class WelcomeController  extends Controller {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -29,7 +27,7 @@ class WelcomeController extends Controller {
 	 */
 	public function __construct()
 	{
-		$this->middleware('auth');
+		$this->middleware('guest');
 	}
 
 	/**
@@ -37,15 +35,10 @@ class WelcomeController extends Controller {
 	 *
 	 * @return Response
 	 */
-
-	
-	public function Insert() {
-		return view('insert');
-	}	
-
-	public function InsertData() {
-		$val =  Request::get('test');
-		InsertModel::addData($val);
-		return view('insert');
+	public function index()
+	{
+		return view('firstP');
 	}
+	
+
 }
